@@ -1,0 +1,57 @@
+= element S
+\symbol W
+\color #ff0000
+\symmetries normal
+\author Luke Wilson
+\license lgpl
+\copyright (C) 2021 Luke Wilson
+
+== Data Members
+u Unsigned(8) red = 0x00;
+u Unsigned(8) green = 0xff;
+u Unsigned(8) blue = 0xff;
+
+== Methods
+
+getColor {
+.    return cu.color(0x00, green, blue);
+.}
+
+== Rules
+
+given @ isa S {
+.  Random random;
+.  // Tweak this as necessary, depending on desired spread speed!
+.  if (!random.oneIn(1)) return false;
+.  $self.blue = (Unsigned(8)) random.between(0x00, 0xff);
+.  $self.green = (Unsigned(8)) random.between(0x00, 0xff);
+.  $self.red = (Unsigned(8)) random.between(0x00, 0xff);
+.}
+
+change W {
+.  S origin = (S) ew[0];
+.  Unsigned(8) originBlue = origin.blue;
+.  Unsigned(8) originGreen = origin.green;
+.  S atom = S.instanceof;
+.  atom.blue = origin.blue;
+.  atom.green = origin.green;
+.  atom.red = origin.red;
+.  ew[$cursn] = atom;
+.}
+
+      .            W
+     ...          WWW
+    .....        WWWWW
+   .......      WWWWWWW
+  ....@.... -> WWWW@WWWW
+   .......      WWWWWWW
+    .....        WWWWW
+     ...          WWW
+      .            W
+
+== Rule: Survive
+
+given @ isa S
+
+  @ -> @
+
