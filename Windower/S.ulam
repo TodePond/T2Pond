@@ -1,5 +1,6 @@
+// manually edited
 //ALTERATION IS FUTILE: THIS FILE AUTOMATICALLY GENERATED FROM S.splat
-//CREATED "Wed Jan 27 17:21:43 2021 GMT" BY ../../splattr FOR luke
+//CREATED "Wed Jan 27 17:37:48 2021 GMT" BY ../../splattr FOR luke
 //BEGIN S.ulam (in ./.splatgen)
 
 
@@ -13,6 +14,8 @@
   \author Luke Wilson
 
   \license lgpl
+
+  \copyright (C) 2021 Luke Wilson
 
  */
 element S : SPLATInstance {
