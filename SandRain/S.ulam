@@ -1,0 +1,264 @@
+// manually edited
+//ALTERATION IS FUTILE: THIS FILE AUTOMATICALLY GENERATED FROM S.splat
+//CREATED "Wed Jan 27 17:37:48 2021 GMT" BY ../../splattr FOR luke
+//BEGIN S.ulam (in ./.splatgen)
+
+
+/** Windower - colourful forkbomb variant.
+  \symbol W
+
+  \color #ff0000
+
+  \symmetries normal
+
+  \author Luke Wilson
+
+  \license lgpl
+
+  \copyright (C) 2021 Luke Wilson
+
+ */
+element S : SPLATInstance {
+  // Data members
+  Unsigned(8) red = 0x00;
+  Unsigned(8) green = 0xff;
+  Unsigned(8) blue = 0xff;
+  virtual Bool evaluateRuleSets() {
+    {
+      SPLATRuleSet_10S rs;
+      if (rs.evaluateRules()) return true;
+    }
+    {
+      SPLATRuleSet_11S rs;
+      if (rs.evaluateRules()) return true;
+    }
+    return false;   // We got nothing
+  }
+    ARGB getColor(Unsigned splATTROoB__selector) {
+      ColorUtils cu;
+      S & splATTROoB__self = self;
+{
+    return cu.color(0x00, green, blue);
+}      return super.getColor(splATTROoB__selector);
+    }
+
+} // element S
+
+transient SPLATKeyState_10S_Dot : SPLATKeyStateAny {
+} // transient SPLATKeyState_10S_Dot
+
+transient SPLATKeyState_10S_At : SPLATKeyStateSelf {
+  // given @ isa S { 
+  //   Random random;
+  //   // Tweak this as necessary, depending on desired spread speed!
+  //   if (!random.oneIn(1)) return false;
+  //   $self.blue = (Unsigned(8)) random.between(0x00, 0xff);
+  //   $self.green = (Unsigned(8)) random.between(0x00, 0xff);
+  //   $self.red = (Unsigned(8)) random.between(0x00, 0xff);
+  Bool given(SPLATRuleSet & splATTROoB__rs, SN splATTROoB__cursn, Atom & splATTROoB__curatom) {
+    if (!(splATTROoB__curatom is S)) return false;
+    S & splATTROoB__self = (S &) splATTROoB__curatom;
+  {
+
+    Random random;
+    // Tweak this as necessary, depending on desired spread speed!
+    if (!random.oneIn(1)) return false;
+    splATTROoB__self.blue = (Unsigned(8)) random.between(0x00, 0xff);
+    splATTROoB__self.green = (Unsigned(8)) random.between(0x00, 0xff);
+    splATTROoB__self.red = (Unsigned(8)) random.between(0x00, 0xff);
+
+  }
+  return true;
+  }
+} // transient SPLATKeyState_10S_At
+
+transient SPLATKeyState_10S_W : SPLATKeyState {
+  // change W  { 
+  //   S origin = (S) ew[0];
+  //   Unsigned(8) originBlue = origin.blue;
+  //   Unsigned(8) originGreen = origin.green;
+  //   S atom = S.instanceof;
+  //   atom.blue = origin.blue;
+  //   atom.green = origin.green;
+  //   atom.red = origin.red;
+  //   ew[$cursn] = atom;
+  Void change(SPLATRuleSet & splATTROoB__rs, SN splATTROoB__cursn, Atom & splATTROoB__curatom) {
+  {
+
+    S origin = (S) ew[0];
+    Unsigned(8) originBlue = origin.blue;
+    Unsigned(8) originGreen = origin.green;
+    S atom = S.instanceof;
+    atom.blue = origin.blue;
+    atom.green = origin.green;
+    atom.red = origin.red;
+    ew[splATTROoB__cursn] = atom;
+
+  }
+  }
+} // transient SPLATKeyState_10S_W
+
+transient SPLATRuleSet_10S : SPLATRuleSet {
+  SPLATKeyState_10S_Dot key_Dot;
+  SPLATKeyState_10S_At key_At;
+  SPLATKeyState_10S_W key_W;
+  virtual Void reset() {
+    super.reset();
+    key_Dot.define('.');
+    key_At.define('@');
+    key_W.define('W');
+  }
+  virtual Void beginSiteEval() {
+    super.beginSiteEval();
+    key_Dot.beginSiteEval();
+    key_At.beginSiteEval();
+    key_W.beginSiteEval();
+  }
+  virtual SPLATKeyState & getKeyState(ASCII key) {
+    which (key) {
+    case '.': { return key_Dot; }
+    case '@': { return key_At; }
+    case 'W': { return key_W; }
+    }
+    return super.getKeyState(key);
+  }
+
+  virtual Bool evaluateRules() {
+    SPLATRuleDriver pd;
+    DebugUtils du;
+     m_scratchVars[0] = (
+0
+);
+     m_scratchVars[1] = (
+0
+);
+     m_scratchVars[2] = (
+0
+);
+     m_scratchVars[3] = (
+0
+);
+     m_scratchVars[4] = (
+0
+);
+     m_scratchVars[5] = (
+0
+);
+     m_scratchVars[6] = (
+0
+);
+     m_scratchVars[7] = (
+0
+);
+     m_scratchVars[8] = (
+0
+);
+     m_scratchVars[9] = (
+0
+);
+    //                         
+    //      .             W    
+    //     ...           WWW   
+    //    .....         WWWWW  
+    //   .......       WWWWWWW 
+    //  ....@.... ->  WWWW@WWWW
+    //   .......       WWWWWWW 
+    //    .....         WWWWW  
+    //     ...           WWW   
+    //      .             W    
+    if (splatControl.cPRINT_RULES) {
+      du.print("Considering:");
+      du.print("                        ");
+      du.print("     .             W    ");
+      du.print("    ...           WWW   ");
+      du.print("   .....         WWWWW  ");
+      du.print("  .......       WWWWWWW ");
+      du.print(" ....@.... ->  WWWW@WWWW");
+      du.print("  .......       WWWWWWW ");
+      du.print("   .....         WWWWW  ");
+      du.print("    ...           WWW   ");
+      du.print("     .             W    ");
+    }
+    if (pd.evaluateRule(self, "\000@\001.\002.\003.\004.\005.\006.\007.\010.\011.\012.\013.\014.\015.\016.\017.\020.\021.\022.\023.\024.\025.\026.\027.\030.\031.\032.\033.\034.\035.\036.\037.\040.\041.\042.\043.\044.\045.\046.\047.\050.\377\000@\001W\002W\003W\004W\005W\006W\007W\010W\011W\012W\013W\014W\015W\016W\017W\020W\021W\022W\023W\024W\025W\026W\027W\030W\031W\032W\033W\034W\035W\036W\037W\040W\041W\042W\043W\044W\045W\046W\047W\050W\376")) {
+      if (splatControl.cPRINT_RULES) du.print("Success");
+      return true;
+    };
+    return false;
+  }
+} // SPLATRuleSet_10S
+
+transient SPLATKeyState_11S_At : SPLATKeyStateSelf {
+  // given @ isa S 
+  Bool given(SPLATRuleSet & splATTROoB__rs, SN splATTROoB__cursn, Atom & splATTROoB__curatom) {
+    if (!(splATTROoB__curatom is S)) return false;
+    S & splATTROoB__self = (S &) splATTROoB__curatom;
+   return (true); 
+  }
+} // transient SPLATKeyState_11S_At
+
+transient SPLATRuleSet_11S : SPLATRuleSet {
+  SPLATKeyState_11S_At key_At;
+  virtual Void reset() {
+    super.reset();
+    key_At.define('@');
+  }
+  virtual Void beginSiteEval() {
+    super.beginSiteEval();
+    key_At.beginSiteEval();
+  }
+  virtual SPLATKeyState & getKeyState(ASCII key) {
+    which (key) {
+    case '@': { return key_At; }
+    }
+    return super.getKeyState(key);
+  }
+
+  virtual Bool evaluateRules() {
+    SPLATRuleDriver pd;
+    DebugUtils du;
+     m_scratchVars[0] = (
+0
+);
+     m_scratchVars[1] = (
+0
+);
+     m_scratchVars[2] = (
+0
+);
+     m_scratchVars[3] = (
+0
+);
+     m_scratchVars[4] = (
+0
+);
+     m_scratchVars[5] = (
+0
+);
+     m_scratchVars[6] = (
+0
+);
+     m_scratchVars[7] = (
+0
+);
+     m_scratchVars[8] = (
+0
+);
+     m_scratchVars[9] = (
+0
+);
+    //         
+    //  @ ->  @
+    if (splatControl.cPRINT_RULES) {
+      du.print("Considering:");
+      du.print("        ");
+      du.print(" @ ->  @");
+    }
+    if (pd.evaluateRule(self, "\000@\377\000@\376")) {
+      if (splatControl.cPRINT_RULES) du.print("Success");
+      return true;
+    };
+    return false;
+  }
+} // SPLATRuleSet_11S
+
+//END S.ulam
