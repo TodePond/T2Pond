@@ -1,0 +1,43 @@
+= element S
+\symbol R
+\color #fc0
+\symmetries normal, flipx
+\author Luke Wilson
+\license lgpl
+\copyright (C) 2021 Luke Wilson
+
+== Rules
+
+ _ -> @
+ @    _
+ 
+ @_ -> @@
+
+given e isa Empty {
+. Random random;
+. return random.oneIn(10);
+.}
+
+change S isa Sand
+ @ -> @
+ e    S
+
+ @ -> @
+
+= element Sand
+\symbol Sa
+\color #fc0
+\symmetries normal, flipx
+\author Luke Wilson
+\license lgpl
+\copyright (C) 2021 Luke Wilson
+
+== Rules
+
+ @ -> _
+ _    @
+ 
+ @  -> _
+  _     @
+  
+ @ -> @
