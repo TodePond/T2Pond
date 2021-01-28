@@ -1,11 +1,11 @@
-// manually edited
+// edited manually
 //ALTERATION IS FUTILE: THIS FILE AUTOMATICALLY GENERATED FROM S.splat
-//CREATED "Wed Jan 27 17:37:48 2021 GMT" BY ../../splattr FOR luke
+//CREATED "Thu Jan 28 18:03:57 2021 GMT" BY ../../splattr FOR luke
 //BEGIN S.ulam (in ./.splatgen)
 
 
-/** Windower - colourful forkbomb variant.
-  \symbol W
+/** Windower - colorful forkbomb variant
+  \symbol S
 
   \color #ff0000
 
