@@ -1,11 +1,11 @@
-// manually edited :)
+// manually edited
 //ALTERATION IS FUTILE: THIS FILE AUTOMATICALLY GENERATED FROM S.splat
-//CREATED "Wed Jan 27 17:56:06 2021 GMT" BY ../../splattr FOR luke
+//CREATED "Thu Jan 28 18:07:14 2021 GMT" BY ../../splattr FOR luke
 //BEGIN S.ulam (in ./.splatgen)
 
 
-/** SandRain - sand rains down from the ceiling!
-  \symbol R
+/** SandRain - rains sand from the ceiling.
+  \symbol S
 
   \color #fc0
 
