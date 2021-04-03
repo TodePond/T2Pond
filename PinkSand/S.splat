@@ -1,0 +1,63 @@
+= element S
+\symbol S
+\color #0f8
+\symmetries normal, flipx
+\author Luke Wilson
+\license lgpl
+\copyright (C) 2021 Luke Wilson
+
+== Rules
+
+given E isa Empty {
+. Random random;
+. return random.oneIn(2);
+.}
+
+change H isa SHead
+
+ _@_ -> _@H
+ 
+change S isa PinkSand
+
+ @ -> @
+ E    S
+ 
+ @ -> @
+
+= element SHead
+\symbol SH
+\color #f44
+\symmetries normal
+\author Luke Wilson
+\license lgpl
+\copyright (C) 2021 Luke Wilson
+
+== Rules
+
+given S isa S
+
+ S@_ -> _S@
+
+ _@S -> @S_
+ 
+ @S -> S@
+ 
+ S@ -> @S
+ 
+= element PinkSand
+\symbol PS
+\color #f0f
+\symmetries normal, flipx
+\author Luke Wilson
+\license lgpl
+\copyright (C) 2021 Luke Wilson
+
+== Rules
+
+ @ -> _
+ _    @
+ 
+ @  -> _
+  _     @
+  
+ @ -> @
